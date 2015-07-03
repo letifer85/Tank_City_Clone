@@ -1,4 +1,4 @@
-package com.thebyteguru.main;
+package com.thebyteguru;
 
 public class Main {
 
