@@ -80,29 +80,77 @@ public abstract class Display {
 	}
 
 	public static void clear() {
+		if (!created) {
+			try {
+				throw new IllegalStateException("Disply is not created.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 		Arrays.fill(screenBufferData, clearColor);
 	}
 
 	public static void swapBuffers() {
+		if (!created) {
+			try {
+				throw new IllegalStateException("Disply is not created.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 		Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
 		g.drawImage(screenBuffer, 0, 0, null);
 		bufferStrategy.show();
 	}
 
 	public static int[] getScreenBufferData() {
+		if (!created) {
+			try {
+				throw new IllegalStateException("Disply is not created.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
 		return screenBufferData;
 	}
 
 	public static Graphics2D getScreenGraphics() {
+		if (!created) {
+			try {
+				throw new IllegalStateException("Disply is not created.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
 		return screenGraphics;
 	}
 
 	public static void dispose() {
+		if (!created) {
+			try {
+				throw new IllegalStateException("Disply is not created.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 		window.dispose();
 		created = false;
 	}
 
 	public static void setTitle(String title) {
+		if (!created) {
+			try {
+				throw new IllegalStateException("Disply is not created.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 		window.setTitle(title);
 	}
 
