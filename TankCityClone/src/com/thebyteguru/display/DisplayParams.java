@@ -20,7 +20,6 @@ public class DisplayParams {
 
 		                                                              @Override
 		                                                              public Void call() throws Exception {
-			                                                              System.exit(0);
 			                                                              return null;
 		                                                              }
 

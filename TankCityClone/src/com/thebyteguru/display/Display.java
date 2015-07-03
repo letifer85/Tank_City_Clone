@@ -43,6 +43,7 @@ public abstract class Display {
 			public void windowClosing(WindowEvent e) {
 				try {
 					dp.onCloseRutine.call();
+					System.exit(0);
 				} catch (Exception e1) {
 					System.err.println("An error occured during 'on close rutine'.");
 					e1.printStackTrace();
@@ -99,6 +100,10 @@ public abstract class Display {
 	public static void dispose() {
 		window.dispose();
 		created = false;
+	}
+
+	public static void setTitle(String title) {
+		window.setTitle(title);
 	}
 
 }
