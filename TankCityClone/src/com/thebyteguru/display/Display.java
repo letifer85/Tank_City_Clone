@@ -27,8 +27,14 @@ public abstract class Display {
 	private static Dimension          size;
 
 	public static void create(DisplayParams dp) {
-		if (created)
-			throw new IllegalStateException("Disply is already created. Please dispose of the current window prior to creating a new one.");
+		if (created) {
+			try {
+				throw new IllegalStateException("Disply is already created. Please dispose of the current window prior to creating a new one.");
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 
 		window = new JFrame(dp.title);
 		window.setUndecorated(dp.decorated);
