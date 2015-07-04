@@ -76,6 +76,10 @@ public abstract class Display {
 			}
 		}
 
+		if (dp.input != null) {
+			window.add(dp.input);
+		}
+
 		created = true;
 	}
 

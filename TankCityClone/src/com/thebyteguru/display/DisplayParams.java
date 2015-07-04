@@ -1,6 +1,7 @@
 package com.thebyteguru.display;
 
 import java.util.concurrent.Callable;
+import com.thebyteguru.input.Input;
 
 public class DisplayParams {
 
@@ -35,6 +36,7 @@ public class DisplayParams {
 	protected byte                     antialiasing;
 	protected int                      clearColor;
 	protected boolean                  decorated;
+	protected Input                    input;
 
 	private DisplayParams() {
 		this.title = DEFAULT_TITLE;
@@ -47,6 +49,7 @@ public class DisplayParams {
 		this.antialiasing = DEFAULT_ANTIALIASING_VALUE;
 		this.clearColor = DEFAULT_CLEAR_COLOR;
 		this.decorated = DECORATED;
+		this.input = null;
 	}
 
 	public static DisplayParams build() {
@@ -95,6 +98,11 @@ public class DisplayParams {
 
 	public DisplayParams makeUndecorated() {
 		this.decorated = true;
+		return this;
+	}
+
+	public DisplayParams withInput(Input input) {
+		this.input = input;
 		return this;
 	}
 }

@@ -1,9 +1,11 @@
 package com.thebyteguru.game;
 
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.Callable;
 import com.thebyteguru.display.Display;
 import com.thebyteguru.display.DisplayParams;
+import com.thebyteguru.input.Input;
 import com.thebyteguru.utils.Time;
 
 public class Game implements Runnable, Callable<Void> {
@@ -17,10 +19,13 @@ public class Game implements Runnable, Callable<Void> {
 	private boolean            running;
 	private Callable<Void>     onCloseRutine;
 	private Graphics2D         displayGraphics;
+	private Input              input;
 
 	public Game() {
+		input = new Input();
 		DisplayParams dp = DisplayParams.build()
 		        .withTitle(TITLE)
+		        .withInput(input)
 		        .withCustomOnCloseOperation(this);
 		Display.create(dp);
 
